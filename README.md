@@ -3,6 +3,14 @@ Elafalter ExampleMod
 
 Example Script for Elafalter
 
+You can find a more detailed getting started guide [in the wiki](https://github.com/dorian-K/Elafalter-ExampleMod/wiki/Getting-Started)!
+
+Requirements
+------------
+
+1. [git](https://github.com/git-for-windows/git/releases/latest)
+2. [NodeJS](https://nodejs.org/en/download/)
+
 Getting started
 ---------------
 
