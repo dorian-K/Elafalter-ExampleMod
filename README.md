@@ -3,18 +3,13 @@ Elafalter ExampleMod
 
 Example Script for Elafalter
 
+You can find a more detailed getting started guide [in the wiki](https://github.com/dorian-K/Elafalter-ExampleMod/wiki/Getting-Started)!
+
 Requirements
 ------------
 
-1. [git bash console](https://github.com/git-for-windows/git/releases/download/v2.37.3.windows.1/Git-2.37.3-64-bit.exe)
-2. [Node.js](https://nodejs.org/en/download/)
-3. NPM LOOK BELOW FOR A TUTORIAL
-
-How to install Npm
-1. Open gitbash console
-3. Enter this command: `nvm install lts --latest-npm`
-3. Wait for it to install
-4. Your done
+1. [git](https://github.com/git-for-windows/git/releases/latest)
+2. [NodeJS](https://nodejs.org/en/download/)
 
 Getting started
 ---------------
