@@ -1,13 +1,13 @@
 import {
 	Game,
-	ModManager
-} from './sdk'
-import attackSomeEntity from './sub';
+	ModManager } from './sdk' // Impors the ModManager and Game classes from the sdk path
+import attackSomeEntity from './sub'; // Imports the attackSomeEntity subfolder script
 
-class ClassBasedMod {
+class ClassBasedMod { // Defines the class name
 
 	ref: JsMod;
-
+	
+	// Definations 
 	constructor(mod: JsMod) {
 		mod.setName("ClassBasedMod");
 
@@ -21,14 +21,14 @@ class ClassBasedMod {
 
 	onInit() {
 		log("on init");
-		log("my mod is: ", this.ref.getName());
+		log("my mod is: ", this.ref.getName()); // Prints the returned Mod Name
 	}
 
 	onEnable() {
 		log("on onEnable");
 
-		let lp = Game.getLocalPlayer();
-		print("Player position: ", lp.position.x);
+		let lp = Game.getLocalPlayer(); // Gets the players position from the LocalPlayer
+		print("Player position: ", lp.position.x, lp.position.y, lp.position.z); // Prints the returned X, Y, Z pos that the player is currently at
 	}
 
 	onDisable() {
@@ -36,26 +36,26 @@ class ClassBasedMod {
 	}
 
 	onTickWorld(lp: LocalPlayer) {
-		if (lp.onGround) {
-			lp.jumpFromGround();
-		} else
-			attackSomeEntity();
+		if (lp.onGround) { // If the Player is on the ground then
+			lp.jumpFromGround(); // Execute the jumpFromGround() func
+		} else // Otherwise we
+			attackSomeEntity(); // Execute this.
 	}
 }
 
 function InlineMod(mod: JsMod) {
-	mod.setName("InlineMod");
+	mod.setName("InlineMod"); // Sets the Mod Name
 
-	mod.on("init", () => {
-		log("on init");
-		log("my mod is: ", mod.getName());
+	mod.on("init", () => { // On initiation 
+		log("on init"); // Print this
+		log("my mod is: ", mod.getName()); // Print the returned Mod Name
 	});
 
-	mod.on("enable", () => {
+	mod.on("enable", () => { 
 		log("on onEnable");
 
-		let lp = Game.getLocalPlayer();
-		print("Player position: ", lp.position.x);
+		let lp = Game.getLocalPlayer(); // Gets the players position from the LocalPlayer
+		print("Player position: ", lp.position.x, lp.position.y, lp.position.z); // Prints the returned X, Y, Z pos that the player is currently at
 	});
 
 	mod.on("disable", () => {
@@ -63,12 +63,13 @@ function InlineMod(mod: JsMod) {
 	});
 
 	mod.on("tickWorld", (lp: LocalPlayer) => {
-		if (lp.onGround) {
-			lp.jumpFromGround();
-		} else
-			attackSomeEntity();
+		if (lp.onGround) { // If the Player is on the ground then
+			lp.jumpFromGround(); // Execute the jumpFromGround() func
+		} else // Otherwise we
+			attackSomeEntity(); // Execute this.
 	});
 }
 
+// Registration 
 ModManager.registerMod(ClassBasedMod);
 ModManager.registerMod(InlineMod);
