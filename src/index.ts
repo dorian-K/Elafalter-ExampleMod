@@ -36,7 +36,10 @@ class ClassBasedMod {
 	}
 
 	onTickWorld(lp: LocalPlayer) {
-		log("on tick world", lp.position.x);
+		if (lp.onGround) {
+			lp.jumpFromGround();
+		} else
+			attackSomeEntity();
 	}
 }
 
@@ -44,22 +47,26 @@ function InlineMod(mod: JsMod) {
 	mod.setName("InlineMod");
 
 	mod.on("init", () => {
-		log("inline init");
+		log("on init");
+		log("my mod is: ", mod.getName());
 	});
 
 	mod.on("enable", () => {
-		log("inline enable");
-		attackSomeEntity();
+		log("on onEnable");
+
+		let lp = Game.getLocalPlayer();
+		print("Player position: ", lp.position.x);
 	});
 
 	mod.on("disable", () => {
-		log("inline disable");
+		log("on onDisable");
 	});
 
 	mod.on("tickWorld", (lp: LocalPlayer) => {
 		if (lp.onGround) {
 			lp.jumpFromGround();
-		}
+		} else
+			attackSomeEntity();
 	});
 }
 
